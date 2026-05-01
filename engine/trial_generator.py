@@ -1,41 +1,63 @@
 import random
 
 RULE_MAP = {
-    "semantic":    "semantic",
-    "length":      "length",
+    "semantic": "semantic",
+    "length": "length",
     "phonological": "syllables"
 }
 
+MAX_ATTEMPTS = 100
+
+
 def generate_trial(stimuli, current_rule):
-    target = random.choice(stimuli)
+    active_key = RULE_MAP[current_rule]
+    other_rules = [r for r in RULE_MAP if r != current_rule]
 
-    # The other two rules this trial must NOT accidentally match on
-    other_rules = [r for r in RULE_MAP.keys() if r != current_rule]
-    active_key  = RULE_MAP[current_rule]
+    for _ in range(MAX_ATTEMPTS):
 
-    # Pure correct: matches on active rule, differs on both other rules
-    correct_pool = [
-        s for s in stimuli
-        if s[active_key] == target[active_key]
-        and s["text"] != target["text"]
-        and all(s[RULE_MAP[r]] != target[RULE_MAP[r]] for r in other_rules)
-    ]
+        target = random.choice(stimuli)
 
-    # Pure incorrect: does NOT match on active rule
-    incorrect_pool = [
-        s for s in stimuli
-        if s[active_key] != target[active_key]
-        and s["text"] != target["text"]
-    ]
+        # ---------------------------
+        # PURE CORRECT POOL
+        # matches ONLY active rule
+        # ---------------------------
+        correct_pool = [
+            s for s in stimuli
+            if s["text"] != target["text"]
+            and s[active_key] == target[active_key]
+            and all(s[RULE_MAP[r]] != target[RULE_MAP[r]] for r in other_rules)
+        ]
 
-    # Recurse if pool is too small (rare with 54 words)
-    if not correct_pool or len(incorrect_pool) < 2:
-        return generate_trial(stimuli, current_rule)
+        if not correct_pool:
+            continue
 
-    correct    = random.choice(correct_pool)
-    incorrects = random.sample(incorrect_pool, 2)
+        correct = random.choice(correct_pool)
 
-    choices = [correct] + incorrects
-    random.shuffle(choices)
+        # ---------------------------
+        # PURE INCORRECT POOL
+        # matches NONE of the rules
+        # ---------------------------
+        incorrect_pool = [
+            s for s in stimuli
+            if s["text"] != target["text"]
+            and s[active_key] != target[active_key]
+            and all(s[RULE_MAP[r]] != target[RULE_MAP[r]] for r in other_rules)
+        ]
 
-    return target, choices
+        if len(incorrect_pool) < 2:
+            continue
+
+        incorrects = random.sample(incorrect_pool, 2)
+
+        choices = [correct] + incorrects
+        random.shuffle(choices)
+
+        return target, choices
+
+    # ---------------------------
+    # FAILSAFE (if constraints too tight)
+    # ---------------------------
+    raise ValueError(
+        "Could not generate a valid trial. "
+        "Your stimulus set may be too constrained or unbalanced."
+    )

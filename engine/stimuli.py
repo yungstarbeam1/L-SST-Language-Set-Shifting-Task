@@ -3,12 +3,12 @@ STIMULI = [
 # ── NATURE ─────────────────────────
 
 # short
-{"text": "Rain", "semantic": "nature", "length": "short", "syllables": 1},
+{"text": "Sun", "semantic": "nature", "length": "short", "syllables": 1},
 {"text": "Tree", "semantic": "nature", "length": "short", "syllables": 1},
 {"text": "Rock", "semantic": "nature", "length": "short", "syllables": 1},
 {"text": "Lake", "semantic": "nature", "length": "short", "syllables": 1},
-{"text": "Wind", "semantic": "nature", "length": "short", "syllables": 1},
-{"text": "Cloud", "semantic": "nature", "length": "short", "syllables": 1},
+{"text": "Fog", "semantic": "nature", "length": "short", "syllables": 1},
+{"text": "Sky", "semantic": "nature", "length": "short", "syllables": 1},
 
 # medium
 {"text": "Forest", "semantic": "nature", "length": "medium", "syllables": 2},
@@ -34,8 +34,8 @@ STIMULI = [
 {"text": "Mom", "semantic": "people", "length": "short", "syllables": 1},
 {"text": "Dad", "semantic": "people", "length": "short", "syllables": 1},
 {"text": "Boy", "semantic": "people", "length": "short", "syllables": 1},
-{"text": "Girl", "semantic": "people", "length": "short", "syllables": 1},
-{"text": "Friend", "semantic": "people", "length": "short", "syllables": 1},
+{"text": "Kid", "semantic": "people", "length": "short", "syllables": 1},
+{"text": "Gal", "semantic": "people", "length": "short", "syllables": 1},
 
 # medium
 {"text": "Teacher", "semantic": "people", "length": "medium", "syllables": 2},
@@ -60,9 +60,9 @@ STIMULI = [
 {"text": "Cup", "semantic": "object", "length": "short", "syllables": 1},
 {"text": "Pen", "semantic": "object", "length": "short", "syllables": 1},
 {"text": "Book", "semantic": "object", "length": "short", "syllables": 1},
-{"text": "Desk", "semantic": "object", "length": "short", "syllables": 1},
-{"text": "Lamp", "semantic": "object", "length": "short", "syllables": 1},
-{"text": "Phone", "semantic": "object", "length": "short", "syllables": 1},
+{"text": "Ball", "semantic": "object", "length": "short", "syllables": 1},
+{"text": "Bag", "semantic": "object", "length": "short", "syllables": 1},
+{"text": "Box", "semantic": "object", "length": "short", "syllables": 1},
 
 # medium
 {"text": "Laptop", "semantic": "object", "length": "medium", "syllables": 2},
