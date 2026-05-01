@@ -14,9 +14,12 @@ An English language based approach to the Wisconsin Card Sorting Test designed t
 
 
 
-##  Test parameters  ##
-
-
+##  Test procedure  ##
+User must pick cards from hand that match target card
+User must must go through 5 successful corrects to satisfy the rule shift streak requirement
+Card in hand can be picked by either clicking with mouse (chosen will be highlighted) or by presssing number on KB
+press "b" to show current rule + streak + timer (all this is hidden by default)
+presss "d" to switch to dark mode, presss again for light
 
 
 ##  The 3 rule dimesnsion  ##
@@ -34,6 +37,13 @@ An English language based approach to the Wisconsin Card Sorting Test designed t
 - sound properties of words
 - Syllabuls count
 
+
+##  Inventory Paramters  ##
+**  Inventory can be viewed in Engine\stimuli.py  **
+
+1. Semantics Rule: Animals, Actions, or Emotions
+2. yntactic: Adjective, Noun, or verb
+3. Phonological: 1,2, or 3 syllabul words
 
 ##  Statistical Analysis  ##
 

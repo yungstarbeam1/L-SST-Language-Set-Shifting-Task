@@ -1,49 +1,60 @@
 import pygame
 
 class Card:
-    def __init__(
-        self,
-        text,
-        semantic,     # e.g. "animals, tools etc."
-        syntactic,    # e.g. "noun, adjective etc."
-        syllables,    # e.g (1 or 2 count)
-        rect
-    ):
+    def __init__(self, text, semantic, syntactic, syllables, rect):
         self.text = text
         self.semantic = semantic
         self.syntactic = syntactic
         self.syllables = syllables
         self.rect = rect
 
-    def draw(self, screen, font, hovered=False):
-        # Fill with a light highlight when hovered, white otherwise
-        fill_color = (220, 235, 255) if hovered else (255, 255, 255)
-        pygame.draw.rect(screen, fill_color, self.rect, border_radius=8)
+    def is_clicked(self, mouse_pos):
+        """Returns True if the mouse clicked within the card boundaries."""
+        return self.rect.collidepoint(mouse_pos)
 
-        # Border: thicker + blue tint when hovered
-        border_color = (30, 100, 220) if hovered else (0, 0, 0)
+    def is_hovered(self, mouse_pos):
+        """Returns True if the mouse is currently over the card."""
+        return self.rect.collidepoint(mouse_pos)
+
+    def matches_rule(self, target, rule):
+        """
+        Compares this card to the target card based on the active rule.
+        Uses .lower() to ensure logic works regardless of capitalization in settings.
+        """
+        r = rule.lower()
+
+        if r == "semantic":
+            # Using .lower() on attributes too for extra safety
+            return str(self.semantic).lower() == str(target.semantic).lower()
+        elif r == "syntactic":
+            return str(self.syntactic).lower() == str(target.syntactic).lower()
+        elif r == "syllables":
+            # Syllables are usually integers, so simple equality is fine
+            return self.syllables == target.syllables
+        return False
+
+    def draw(self, screen, font, theme, hovered=False):
+        """
+        Renders the card with theme-aware colors and hover effects.
+        """
+        # Background: Use theme's card color, slightly lightened if hovered
+        base_color = theme["card_bg"]
+        if hovered:
+            # Create a subtle highlight effect
+            fill_color = (min(base_color[0] + 20, 255), 
+                          min(base_color[1] + 20, 255), 
+                          min(base_color[2] + 25, 255))
+        else:
+            fill_color = base_color
+
+        pygame.draw.rect(screen, fill_color, self.rect, border_radius=8)
+        
+        # Border: Blue if hovered for high visibility, else standard gray
+        border_color = (0, 120, 255) if hovered else (100, 100, 100)
         border_width = 3 if hovered else 2
         pygame.draw.rect(screen, border_color, self.rect, border_width, border_radius=8)
 
-        label = font.render(self.text, True, (0, 0, 0))
+        # Text: Rendered using the theme's text color
+        label = font.render(self.text, True, theme["text"])
         text_rect = label.get_rect(center=self.rect.center)
         screen.blit(label, text_rect)
-
-    def is_clicked(self, pos):
-        return self.rect.collidepoint(pos)
-
-    def is_hovered(self, pos):
-        return self.rect.collidepoint(pos)
-
-    # matching rule logic
-    def matches_rule(self, other_card, rule):
-        if rule == "semantic":
-            return self.semantic == other_card.semantic
-
-        elif rule == "syntactic":
-            return self.syntactic == other_card.syntactic
-
-        elif rule == "phonological":
-            return self.syllables == other_card.syllables
-
-        return False
