@@ -20,30 +20,27 @@ User must must go through 5 successful corrects to satisfy the rule shift streak
 Card in hand can be picked by either clicking with mouse (chosen will be highlighted) or by presssing number on KB
 press "b" to show current rule + streak + timer (all this is hidden by default)
 presss "d" to switch to dark mode, presss again for light
-
+esc will close the program at any given time
 
 ##  The 3 rule dimesnsion  ##
 
 1. Semantic category
 - This category involves words with close contextual meaning / fall within a neat set when put togethor
-- ex. animals, tools, emotions etc.
 
 
 2. Syntactic structure
 - follow similar grammatical use
-- ex. Noun, verb, adjective, Name
 
 3. Phonological Features
 - sound properties of words
-- Syllabuls count
 
 
 ##  Inventory Paramters  ##
 **  Inventory can be viewed in Engine\stimuli.py  **
 
-1. Semantics Rule: Animals, Actions, or Emotions
+1. Semantics Rule: - ex. nature, object, people etc.
 2. yntactic: Adjective, Noun, or verb
-3. Phonological: 1,2, or 3 syllabul words
+3. Phonological: 1,2, or 3 syllable words
 
 ##  Statistical Analysis  ##
 
