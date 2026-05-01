@@ -23,7 +23,7 @@ CURSOR_ARROW = pygame.SYSTEM_CURSOR_ARROW
 
 engine = LSSTEngine()
 
-# ── WCST-STYLE RULE STATE ──────────────────────────────────────────────────
+#  WCST-STYLE RULE STATE 
 rule_order = RULES[:]          
 rule_index = 0                 
 current_rule = rule_order[rule_index]
@@ -42,7 +42,7 @@ show_debug = False
 # TIMING
 trial_start_time = pygame.time.get_ticks()
 
-# ── CARD BUILDER ───────────────────────────────────────────────────────────
+#  CARD BUILDER 
 def build_cards(target_data, choice_data):
     target_rect = pygame.Rect((WIDTH - 200) // 2, (HEIGHT - 100) // 2 - 200, 200, 100)
     target = Card(
@@ -62,7 +62,7 @@ def build_cards(target_data, choice_data):
         ))
     return target, choices
 
-# ── IMPROVED FEEDBACK DRAW ──────────────────────────────────────────────────
+#   FEEDBACK DRAW 
 def draw_feedback(surface, w, h, state):
     # Dim background[cite: 1]
     overlay = pygame.Surface((w, h), pygame.SRCALPHA)
@@ -84,7 +84,7 @@ def draw_feedback(surface, w, h, state):
         pygame.draw.line(surface, (255, 255, 255), (cx-offset, cy-offset), (cx+offset, cy+offset), 10)
         pygame.draw.line(surface, (255, 255, 255), (cx+offset, cy-offset), (cx-offset, cy+offset), 10)
 
-# ── RESULTS SCREEN ─────────────────────────────────────────────────────────
+# RESULTS SCREEN
 def draw_results_screen(surface, w, h, total_trials):
     surface.fill((240, 245, 250))
     title_font = pygame.font.Font(None, 80)
@@ -134,7 +134,7 @@ while running:
                         show_feedback = True
                         feedback_time = pygame.time.get_ticks()
 
-# ── DRAWING LOGIC ───────────────────────────────────────────────────────
+# INTERACT LOGIC 
     if show_results:
         draw_results_screen(screen, WIDTH, HEIGHT, trial_number)
         pygame.mouse.set_cursor(CURSOR_ARROW) # Ensure arrow on results screen
