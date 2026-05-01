@@ -6,7 +6,7 @@ from ui.card import Card
 from engine.stimuli import STIMULI
 from engine.trial_generator import generate_trial
 from engine.lsst_logic import LSSTEngine
-from settings import RULES, TRIALS_PER_RULE
+from settings import RULES, TRIALS_PER_RULE, SHUFFLE_RULES
 
 pygame.init()
 
@@ -47,11 +47,15 @@ CURSOR_ARROW = pygame.SYSTEM_CURSOR_ARROW
 
 engine = LSSTEngine()
 
-rule_order = RULES[:]          
-rule_index = 0                 
+# Rule Logic with Optional Shuffling
+rule_order = RULES[:]
+if SHUFFLE_RULES:
+    random.shuffle(rule_order)
+
+rule_index = 0
 current_rule = rule_order[rule_index]
-consecutive_correct = 0        
-trial_number = 0               
+consecutive_correct = 0
+trial_number = 0
 
 feedback = None
 feedback_time = 0
@@ -65,10 +69,12 @@ def handle_selection(selected_card):
     global consecutive_correct, trial_number, feedback, show_feedback, feedback_time
     correct = engine.check(target_card, selected_card, current_rule)
     trial_number += 1
+    
     if correct:
         consecutive_correct += 1
     else:
         consecutive_correct = 0   
+
     feedback = "correct" if correct else "incorrect"
     show_feedback = True
     feedback_time = pygame.time.get_ticks()
@@ -76,6 +82,7 @@ def handle_selection(selected_card):
 def build_cards(target_data, choice_data):
     target_rect = pygame.Rect((WIDTH - 200) // 2, (HEIGHT - 100) // 2 - 200, 200, 100)
     target = Card(target_data["text"], target_data["semantic"], target_data["syntactic"], target_data["syllables"], target_rect)
+    
     x_positions = [WIDTH // 2 - 300, WIDTH // 2 - 100, WIDTH // 2 + 100]
     choices = []
     for i, c in enumerate(choice_data):
@@ -88,13 +95,11 @@ def draw_start_screen(surface, w, h, theme):
     title_font = pygame.font.Font(None, 150)
     
     title_text = "L-SST"
-    # Calculate starting X to center the entire animated string
     total_width = title_font.size(title_text)[0]
     current_x = (w - total_width) // 2
     current_time = pygame.time.get_ticks()
     
     for i, char in enumerate(title_text):
-        # Shifting logic: speed (ticks/500), spread (i*0.5), amplitude (15px)
         offset = math.sin(current_time / 500 + i * 0.5) * 15
         char_surf = title_font.render(char, True, theme["text"])
         char_rect = char_surf.get_rect(center=(current_x + char_surf.get_width() // 2, (h // 2 - 50) + offset))
@@ -105,7 +110,7 @@ def draw_start_screen(surface, w, h, theme):
     surface.blit(start_surf, start_surf.get_rect(center=(w // 2, h // 2 + 50)))
 
     hint_color = (150, 150, 150)
-    hint_text = " [D] theme switch  |   [B] for demo display"
+    hint_text = " [D] for Dark Mode  |   [B] for debug display"
     hint_surf = hint_font.render(hint_text, True, hint_color)
     surface.blit(hint_surf, hint_surf.get_rect(center=(w // 2, h // 2 + 150)))
 
@@ -199,6 +204,7 @@ while running:
                         game_state = STATE_RESULTS
                     else:
                         current_rule = rule_order[rule_index]
+                
                 if game_state == STATE_PLAYING:
                     target_data, choice_data = generate_trial(STIMULI, current_rule)
                     target_card, choice_cards = build_cards(target_data, choice_data)
