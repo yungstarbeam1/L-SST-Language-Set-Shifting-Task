@@ -19,18 +19,27 @@ class Card:
     def matches_rule(self, target, rule):
         """
         Compares this card to the target card based on the active rule.
-        Uses .lower() to ensure logic works regardless of capitalization in settings.
+        Uses .lower() for strings and handles the 'phonological' vs 'syllables' naming.
         """
+        # Normalize rule string to lowercase
         r = rule.lower()
 
         if r == "semantic":
-            # Using .lower() on attributes too for extra safety
+            # Compare semantic category
             return str(self.semantic).lower() == str(target.semantic).lower()
+        
         elif r == "syntactic":
+            # Compare part of speech
             return str(self.syntactic).lower() == str(target.syntactic).lower()
-        elif r == "syllables":
-            # Syllables are usually integers, so simple equality is fine
-            return self.syllables == target.syllables
+        
+        elif r == "syllables" or r == "phonological":
+            # Handles the mismatch between the rule name and the data attribute
+            try:
+                return int(self.syllables) == int(target.syllables)
+            except (ValueError, TypeError):
+                # Fallback if data is non-numeric
+                return self.syllables == target.syllables
+                
         return False
 
     def draw(self, screen, font, theme, hovered=False):
@@ -49,7 +58,7 @@ class Card:
 
         pygame.draw.rect(screen, fill_color, self.rect, border_radius=8)
         
-        # Border: Blue if hovered for high visibility, else standard gray
+        # Border logic: Blue highlight if hovered, otherwise standard gray
         border_color = (0, 120, 255) if hovered else (100, 100, 100)
         border_width = 3 if hovered else 2
         pygame.draw.rect(screen, border_color, self.rect, border_width, border_radius=8)
