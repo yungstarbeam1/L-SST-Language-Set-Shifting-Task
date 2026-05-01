@@ -1,8 +1,8 @@
-RULES = ["semantic", "syntactic", "phonological"]
+RULES = ["semantic", "length", "phonological"]
 
-#set to false for set order (sesmantic, syntactic, phonological)
+# Set to False for fixed order (semantic → length → phonological)
 SHUFFLE_RULES = True
 
-#WCST style stsreak to switch rule, dont tell the participant! 
-TRIALS_PER_RULE = 3 #beta testing fix to 5 later
+# WCST-style streak to shift rule — don't tell the participant!
+TRIALS_PER_RULE = 3  # default
 TOTAL_TRIALS = TRIALS_PER_RULE * len(RULES)

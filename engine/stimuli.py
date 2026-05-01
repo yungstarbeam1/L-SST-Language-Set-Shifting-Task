@@ -1,34 +1,83 @@
 STIMULI = [
-    # --- NATURE (Semantic: nature) ---
-    {"text": "Bird", "semantic": "nature", "syntactic": "noun", "syllables": 1},
-    {"text": "River", "semantic": "nature", "syntactic": "noun", "syllables": 2},
-    {"text": "Volcano", "semantic": "nature", "syntactic": "noun", "syllables": 3},
-    {"text": "Green", "semantic": "nature", "syntactic": "adj", "syllables": 1},
-    {"text": "Frozen", "semantic": "nature", "syntactic": "adj", "syllables": 2},
-    {"text": "Natural", "semantic": "nature", "syntactic": "adj", "syllables": 3},
-    {"text": "Grow", "semantic": "nature", "syntactic": "verb", "syllables": 1},
-    {"text": "Blossom", "semantic": "nature", "syntactic": "verb", "syllables": 2},
-    {"text": "Erupting", "semantic": "nature", "syntactic": "verb", "syllables": 3},
 
-    # --- OBJECTS (Semantic: object) ---
-    {"text": "Box", "semantic": "object", "syntactic": "noun", "syllables": 1},
-    {"text": "Hammer", "semantic": "object", "syntactic": "noun", "syllables": 2},
-    {"text": "Computer", "semantic": "object", "syntactic": "noun", "syllables": 3},
-    {"text": "Sharp", "semantic": "object", "syntactic": "adj", "syllables": 1},
-    {"text": "Heavy", "semantic": "object", "syntactic": "adj", "syllables": 2},
-    {"text": "Metallic", "semantic": "object", "syntactic": "adj", "syllables": 3},
-    {"text": "Break", "semantic": "object", "syntactic": "verb", "syllables": 1},
-    {"text": "Rotate", "semantic": "object", "syntactic": "verb", "syllables": 2},
-    {"text": "Construct", "semantic": "object", "syntactic": "verb", "syllables": 3},
+# ── NATURE ─────────────────────────
 
-    # --- PEOPLE (Semantic: people) ---
-    {"text": "Friend", "semantic": "people", "syntactic": "noun", "syllables": 1},
-    {"text": "Doctor", "semantic": "people", "syntactic": "noun", "syllables": 2},
-    {"text": "Assistant", "semantic": "people", "syntactic": "noun", "syllables": 3},
-    {"text": "Kind", "semantic": "people", "syntactic": "adj", "syllables": 1},
-    {"text": "Honest", "semantic": "people", "syntactic": "adj", "syllables": 2},
-    {"text": "Talented", "semantic": "people", "syntactic": "adj", "syllables": 3},
-    {"text": "Help", "semantic": "people", "syntactic": "verb", "syllables": 1},
-    {"text": "Listen", "semantic": "people", "syntactic": "verb", "syllables": 2},
-    {"text": "Organize", "semantic": "people", "syntactic": "verb", "syllables": 3},
+# short
+{"text": "Rain", "semantic": "nature", "length": "short", "syllables": 1},
+{"text": "Tree", "semantic": "nature", "length": "short", "syllables": 1},
+{"text": "Rock", "semantic": "nature", "length": "short", "syllables": 1},
+{"text": "Lake", "semantic": "nature", "length": "short", "syllables": 1},
+{"text": "Wind", "semantic": "nature", "length": "short", "syllables": 1},
+{"text": "Cloud", "semantic": "nature", "length": "short", "syllables": 1},
+
+# medium
+{"text": "Forest", "semantic": "nature", "length": "medium", "syllables": 2},
+{"text": "Desert", "semantic": "nature", "length": "medium", "syllables": 2},
+{"text": "Ocean", "semantic": "nature", "length": "medium", "syllables": 2},
+{"text": "River", "semantic": "nature", "length": "medium", "syllables": 2},
+{"text": "Valley", "semantic": "nature", "length": "medium", "syllables": 2},
+{"text": "Island", "semantic": "nature", "length": "medium", "syllables": 2},
+
+# long
+{"text": "Mountain", "semantic": "nature", "length": "long", "syllables": 2},
+{"text": "Waterfall", "semantic": "nature", "length": "long", "syllables": 3},
+{"text": "Hurricane", "semantic": "nature", "length": "long", "syllables": 3},
+{"text": "Volcano", "semantic": "nature", "length": "long", "syllables": 3},
+{"text": "Lightning", "semantic": "nature", "length": "long", "syllables": 2},
+{"text": "Earthquake", "semantic": "nature", "length": "long", "syllables": 2},
+
+
+# ── PEOPLE ─────────────────────────
+
+# short
+{"text": "Man", "semantic": "people", "length": "short", "syllables": 1},
+{"text": "Mom", "semantic": "people", "length": "short", "syllables": 1},
+{"text": "Dad", "semantic": "people", "length": "short", "syllables": 1},
+{"text": "Boy", "semantic": "people", "length": "short", "syllables": 1},
+{"text": "Girl", "semantic": "people", "length": "short", "syllables": 1},
+{"text": "Friend", "semantic": "people", "length": "short", "syllables": 1},
+
+# medium
+{"text": "Teacher", "semantic": "people", "length": "medium", "syllables": 2},
+{"text": "Doctor", "semantic": "people", "length": "medium", "syllables": 2},
+{"text": "Driver", "semantic": "people", "length": "medium", "syllables": 2},
+{"text": "Farmer", "semantic": "people", "length": "medium", "syllables": 2},
+{"text": "Singer", "semantic": "people", "length": "medium", "syllables": 2},
+{"text": "Worker", "semantic": "people", "length": "medium", "syllables": 2},
+
+# long
+{"text": "Firefighter", "semantic": "people", "length": "long", "syllables": 3},
+{"text": "Photographer", "semantic": "people", "length": "long", "syllables": 4},
+{"text": "Electrician", "semantic": "people", "length": "long", "syllables": 4},
+{"text": "Scientist", "semantic": "people", "length": "long", "syllables": 3},
+{"text": "Engineer", "semantic": "people", "length": "long", "syllables": 3},
+{"text": "Journalist", "semantic": "people", "length": "long", "syllables": 3},
+
+
+# ── OBJECTS ─────────────────────────
+
+# short
+{"text": "Cup", "semantic": "object", "length": "short", "syllables": 1},
+{"text": "Pen", "semantic": "object", "length": "short", "syllables": 1},
+{"text": "Book", "semantic": "object", "length": "short", "syllables": 1},
+{"text": "Desk", "semantic": "object", "length": "short", "syllables": 1},
+{"text": "Lamp", "semantic": "object", "length": "short", "syllables": 1},
+{"text": "Phone", "semantic": "object", "length": "short", "syllables": 1},
+
+# medium
+{"text": "Laptop", "semantic": "object", "length": "medium", "syllables": 2},
+{"text": "Tablet", "semantic": "object", "length": "medium", "syllables": 2},
+{"text": "Bottle", "semantic": "object", "length": "medium", "syllables": 2},
+{"text": "Camera", "semantic": "object", "length": "medium", "syllables": 3},
+{"text": "Printer", "semantic": "object", "length": "medium", "syllables": 2},
+{"text": "Backpack", "semantic": "object", "length": "medium", "syllables": 2},
+
+# long
+{"text": "Television", "semantic": "object", "length": "long", "syllables": 4},
+{"text": "Refrigerator", "semantic": "object", "length": "long", "syllables": 5},
+{"text": "Microscope", "semantic": "object", "length": "long", "syllables": 3},
+{"text": "Calculator", "semantic": "object", "length": "long", "syllables": 4},
+{"text": "Headphones", "semantic": "object", "length": "long", "syllables": 3},
+{"text": "Keyboard", "semantic": "object", "length": "long", "syllables": 2},
+
 ]

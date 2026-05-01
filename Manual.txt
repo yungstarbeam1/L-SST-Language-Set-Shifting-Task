@@ -1,4 +1,4 @@
- _                   _______  _______ _________
+_                   _______  _______ _________
 ( \                 (  ____ \(  ____ \\__   __/
 | (                 | (    \/| (    \/   ) (   
 | |         _____   | (_____ | (_____    | |   
@@ -6,42 +6,78 @@
 | |                       ) |      ) |   | |   
 | (____/\           /\____) |/\____) |   | |   
 (_______/           \_______)\_______)   )_(   
-                                                                                                           
-Language Set-Shifting Task (LS-ST) 
+
+Language Set-Shifting Task (LS-ST)
+
+An English language based approach to the Wisconsin Card Sorting Test
+designed to target linguistic control cognition.
 
 
-An English language based approach to the Wisconsin Card Sorting Test designed to target linguistic control cognition
+##  Test Procedure  ##
+
+A target word is displayed at the top of the screen.
+The participant must select the card from the three choices below
+that matches the target according to a hidden rule.
+
+Cards can be selected by:
+  - Clicking with the mouse
+  - Pressing 1, 2, or 3 on the keyboard
+
+The active rule is never shown to the participant.
+Rules shift automatically once the participant achieves the required
+consecutive correct streak (default: 5). A wrong answer resets the streak.
+
+Press SPACE to begin.
+Press ESC at any time to exit.
+Press D to toggle dark / light mode.
+Press B to reveal the current rule, streak, and trial info (hidden by default —
+for researcher / demo use only).
 
 
+##  The 3 Rule Dimensions  ##
 
-##  Test procedure  ##
-User must pick cards from hand that match target card
-User must must go through 5 successful corrects to satisfy the rule shift streak requirement
-Card in hand can be picked by either clicking with mouse (chosen will be highlighted) or by presssing number on KB
-press "b" to show current rule + streak + timer (all this is hidden by default)
-presss "d" to switch to dark mode, presss again for light
-esc will close the program at any given time
+1. Semantic Category
+   Words belong to the same conceptual domain.
+   Categories: nature, people, object
+   Example: "Frost" and "Tide" both belong to nature.
 
-##  The 3 rule dimesnsion  ##
+2. Word Length
+   Words share the same letter-count tier.
+   Tiers: short (1–4 letters), medium (5–7 letters), long (8+ letters)
+   Example: "Bolt" and "Reef" are both short. "Avalanche" and "Convicted" are both long.
 
-1. Semantic category
-- This category involves words with close contextual meaning / fall within a neat set when put togethor
-
-
-2. Syntactic structure
-- follow similar grammatical use
-
-3. Phonological Features
-- sound properties of words
+3. Phonological (Syllable Count)
+   Words share the same number of syllables.
+   Tiers: 1, 2, or 3 syllables
+   Example: "Thaw" and "Weld" are both 1 syllable. "Cylinder" and "Literate" are both 3.
 
 
-##  Inventory Paramters  ##
-**  Inventory can be viewed in Engine\stimuli.py  **
+##  Inventory Parameters  ##
 
-1. Semantics Rule: - ex. nature, object, people etc.
-2. yntactic: Adjective, Noun, or verb
-3. Phonological: 1,2, or 3 syllable words
+Stimulus inventory is defined in:  engine/stimuli.py
+
+Each word entry contains 4 fields:
+
+  "text"      — the word displayed on the card
+  "semantic"  — category: "nature" | "people" | "object"
+  "length"    — tier: "short" | "medium" | "long"
+  "syllables" — count: 1 | 2 | 3 (| 4 for rare edge cases)
+
+The trial generator selects a pure correct match: a word that matches the
+target on the active rule dimension but differs on both other dimensions.
+This prevents any accidental correct answers and ensures the rule is the
+only valid basis for selection.
+
+
+##  Settings  ##
+
+Configurable in:  settings.py
+
+  RULES           — list of active rule dimensions
+  SHUFFLE_RULES   — True: randomise rule order | False: semantic → length → phonological
+  TRIALS_PER_RULE — consecutive correct responses required to trigger a rule shift (default: 5)
+
 
 ##  Statistical Analysis  ##
 
-
+(to be completed)
