@@ -1,0 +1,40 @@
+ _                   _______  _______ _________
+( \                 (  ____ \(  ____ \\__   __/
+| (                 | (    \/| (    \/   ) (   
+| |         _____   | (_____ | (_____    | |   
+| |        (_____)  (_____  )(_____  )   | |   
+| |                       ) |      ) |   | |   
+| (____/\           /\____) |/\____) |   | |   
+(_______/           \_______)\_______)   )_(   
+                                                                                                           
+Language Set-Shifting Task (LS-ST) 
+
+
+An English language based approach to the Wisconsin Card Sorting Test designed to target linguistic control cognition
+
+
+
+##  Test parameters  ##
+
+
+
+
+##  The 3 rule dimesnsion  ##
+
+1. Semantic category
+- This category involves words with close contextual meaning / fall within a neat set when put togethor
+- ex. animals, tools, emotions etc.
+
+
+2. Syntactic structure
+- follow similar grammatical use
+- ex. Noun, verb, adjective, Name
+
+3. Phonological Features
+- sound properties of words
+- Syllabuls count
+
+
+##  Statistical Analysis  ##
+
+
