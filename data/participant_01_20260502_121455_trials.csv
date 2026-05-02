@@ -1,0 +1,4 @@
+trial_number,rule,previous_rule,is_post_shift,target_word,target_semantic,target_length,target_syllables,chosen_word,chosen_semantic,chosen_length,chosen_syllables,correct,perseverative_error,rt_ms,streak_after
+1,length,none,False,Electrician,people,long,4,Headphones,object,long,3,True,False,4595,1
+2,semantic,length,True,Dad,people,short,1,Teacher,people,medium,2,True,False,3565,1
+3,phonological,semantic,True,Scientist,people,long,3,Camera,object,medium,3,True,False,5895,1

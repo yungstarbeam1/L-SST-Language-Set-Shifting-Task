@@ -1,0 +1,4 @@
+trial_number,rule,previous_rule,is_post_shift,target_word,target_semantic,target_length,target_syllables,chosen_word,chosen_semantic,chosen_length,chosen_syllables,correct,perseverative_error,rt_ms,streak_after
+1,length,none,False,Driver,people,medium,2,Camera,object,medium,3,True,False,17582,1
+2,semantic,length,True,Scientist,people,long,3,Dad,people,short,1,True,False,2495,1
+3,phonological,semantic,True,Engineer,people,long,3,Camera,object,medium,3,True,False,3139,1
