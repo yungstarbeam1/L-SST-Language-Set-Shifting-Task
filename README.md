@@ -3,7 +3,7 @@
 
 ![L-SST Start Screen](screenshot.png)
 
-> *Can your brain switch gears fast enough?*
+> *Try it out!*
 
 ---
 
