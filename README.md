@@ -1,7 +1,7 @@
 [L-SST_showcase.md](https://github.com/user-attachments/files/27306615/L-SST_showcase.md)
 # L-SST — Language Set-Shifting Task
 
-![L-SST Start Screen](1777745023973_2026-05-02_14_01_24-L-SST.png)
+![L-SST Start Screen](screenshot.png)
 
 > *Can your brain switch gears fast enough?*
 
