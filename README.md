@@ -134,14 +134,7 @@ logger = TrialLogger(participant_id="P001")
 
 ## The science behind it
 
-Cognitive set-shifting — the ability to disengage from a current mental strategy and switch to a new one — is a core component of **executive function**. Deficits in set-shifting are associated with:
-
-- Obsessive-compulsive disorder (OCD)
-- Schizophrenia
-- Parkinson's disease
-- Frontal lobe lesions
-- Normal aging
-
+Cognitive set-shifting, the ability to disengage from a current mental strategy and switch to a new one, is a core component of **executive function**.
 The WCST has been a gold-standard measure of this since the 1940s. L-SST brings it into the domain of language, opening up new research questions about how **verbal cognition and cognitive control interact**.
 
 ---
