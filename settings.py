@@ -4,5 +4,5 @@ RULES = ["semantic", "length", "phonological"]
 SHUFFLE_RULES = True
 
 # WCST-style streak to shift rule — don't tell the participant!
-TRIALS_PER_RULE = 1  # default
+TRIALS_PER_RULE = 5  # default
 TOTAL_TRIALS = TRIALS_PER_RULE * len(RULES)
