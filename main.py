@@ -1,6 +1,19 @@
 import pygame
 import random
 import math
+import sys
+import os
+
+# ── RUNTIME PATH ──────────────────────────────────────────────────────────────
+# When frozen as .exe, settings.py and data/ must live next to the exe.
+# BASE_DIR always points to the folder containing the exe (or main.py in dev).
+if getattr(sys, "frozen", False):
+    BASE_DIR = os.path.dirname(sys.executable)
+else:
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+sys.path.insert(0, BASE_DIR)
+DATA_DIR = os.path.join(BASE_DIR, "data")
 
 from ui.card import Card
 from engine.stimuli import STIMULI
@@ -55,10 +68,10 @@ if SHUFFLE_RULES:
 
 rule_index          = 0
 current_rule        = rule_order[rule_index]
-previous_rule       = None       # used by logger for perseveration detection
+previous_rule       = None
 consecutive_correct = 0
 trial_number        = 0
-is_post_shift       = False      # True on first trial after a rule change
+is_post_shift       = False
 
 feedback         = None
 feedback_time    = 0
@@ -67,7 +80,7 @@ show_debug       = False
 trial_start_time = 0
 summary_measures = {}
 data_saved       = False
-show_results     = False   # V to reveal on results screen
+show_results     = False
 
 
 # ── HELPERS ───────────────────────────────────────────────────────────────────
@@ -230,7 +243,7 @@ while running:
             if event.key == pygame.K_v and game_state == STATE_RESULTS:
                 show_results = not show_results
             if event.key == pygame.K_s and game_state == STATE_RESULTS and not data_saved:
-                logger.export_all()
+                logger.export_all(output_dir=DATA_DIR)
                 data_saved = True
 
             if game_state == STATE_START and event.key == pygame.K_SPACE:
@@ -284,27 +297,27 @@ while running:
             draw_feedback(screen, WIDTH, HEIGHT, feedback, current_theme)
             if pygame.time.get_ticks() - feedback_time > 600:
                 show_feedback = False
-                is_post_shift = False  # consumed — reset after first trial of new epoch
+                is_post_shift = False
 
                 if consecutive_correct >= TRIALS_PER_RULE:
                     consecutive_correct = 0
-                    previous_rule       = current_rule  # carry for perseveration detection
+                    previous_rule       = current_rule
                     rule_index         += 1
 
                     if rule_index >= len(rule_order):
                         summary_measures = logger.compute_measures()
                         game_state = STATE_RESULTS
-                        data_saved = False  # export is opt-in on results screen
+                        data_saved = False
                     else:
                         current_rule  = rule_order[rule_index]
-                        is_post_shift = True  # first trial of new rule epoch
+                        is_post_shift = True
 
                 if game_state == STATE_PLAYING:
                     target_data, choice_data = generate_trial(STIMULI, current_rule)
                     target_card, choice_cards = build_cards(target_data, choice_data)
                     trial_start_time = pygame.time.get_ticks()
 
-        # Debug HUD (B to toggle)
+        # Debug HUD
         if show_debug:
             hud = font.render(
                 f"Rule: {current_rule}   Streak: {consecutive_correct}/{TRIALS_PER_RULE}"
