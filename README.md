@@ -1,5 +1,5 @@
 [L-SST_showcase.md](https://github.com/user-attachments/files/27306615/L-SST_showcase.md)
-# 🧠 L-SST — Language Set-Shifting Task
+# L-SST — Language Set-Shifting Task
 
 ![L-SST Start Screen](1777745023973_2026-05-02_14_01_24-L-SST.png)
 
@@ -56,20 +56,20 @@ Get **5 in a row correct** → the rule shifts. No warning. No fanfare. The task
 
 L-SST captures a rich set of WCST-aligned cognitive measures automatically:
 
-### 🎯 Accuracy
+###  Accuracy
 - Total correct responses & error rate
 - Categories completed (out of 3)
 
-### 🔁 Perseveration
+###  Perseveration
 > *The hallmark of inflexible thinking.*
 
 A **perseverative error** is when a participant chooses the card that would have been correct under the **previous** rule — they're still playing by the old rules. This is the core measure of cognitive rigidity, directly comparable to WCST perseveration scores.
 
-### ⚡ Set-Shift Acquisition
+###  Set-Shift Acquisition
 - How many trials it takes to get the first correct response after each rule shift
 - Captures *how quickly* someone detects and adapts to change
 
-### ⏱️ Reaction Time
+### Reaction Time
 - Mean RT for correct vs. incorrect responses
 - RT per rule dimension
 - **Post-error slowing** — the hesitation that follows a mistake
@@ -78,12 +78,12 @@ A **perseverative error** is when a participant chooses the card that would have
 
 ## Built for research
 
-- ✅ **No setup friction** — double-click and go, no Python required for participants
-- ✅ **Automatic CSV export** — trial-level log + summary measures, timestamped per participant
-- ✅ **Configurable** — tweak rules, streak threshold, and rule order in `settings.py`
-- ✅ **Debug mode** — press `B` to reveal current rule and streak (researcher use only)
-- ✅ **Dark & light modes** — press `D` to toggle
-- ✅ **Pure-match trial generation** — correct choice always matches on exactly one dimension, eliminating ambiguous trials
+-  **No setup friction** — double-click and go, no Python required for participants
+-  **Automatic CSV export** — trial-level log + summary measures, timestamped per participant
+-  **Configurable** — tweak rules, streak threshold, and rule order in `settings.py`
+-  **Debug mode** — press `B` to reveal current rule and streak (researcher use only)
+-  **Dark & light modes** — press `D` to toggle
+-  **Pure-match trial generation** — correct choice always matches on exactly one dimension, eliminating ambiguous trials
 
 ---
 
