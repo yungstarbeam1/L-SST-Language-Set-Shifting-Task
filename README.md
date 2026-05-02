@@ -9,11 +9,11 @@
 
 ## What is L-SST?
 
-**L-SST** is a cognitive flexibility task built for researchers studying how the brain manages — and struggles with — **rule-based thinking under uncertainty**.
+**L-SST** is a cognitive flexibility task built for researchers studying how the brain manages and struggles with **rule-based thinking under uncertainty**.
 
 It's an English-language reimagining of the classic **Wisconsin Card Sorting Test (WCST)**, rebuilt around words instead of cards. Participants sort words by a hidden rule that silently shifts once they've figured it out. The catch? They're never told the rule changed.
 
-That moment of confusion — when someone keeps using the old rule even after it's stopped working — is exactly what we're measuring.
+That moment of confusion when someone keeps using the old rule even after it's stopped working is exactly what we're measuring.
 
 ---
 
@@ -21,12 +21,12 @@ That moment of confusion — when someone keeps using the old rule even after it
 
 The WCST uses colours, shapes, and numbers. L-SST uses **language**.
 
-That's not a small difference. Language processing pulls on a different set of cognitive resources — semantic memory, phonological awareness, lexical access. By grounding the task in words, L-SST targets **linguistic cognitive control** specifically, making it useful for:
+That's not a small difference. Language processing pulls on a different set of cognitive resources: semantic memory, phonological awareness, lexical access. By grounding the task in words, L-SST targets **linguistic cognitive control** specifically, making it useful for:
 
-- 🔬 Research on language & executive function
-- 🧪 Studies of bilingualism and cognitive flexibility
-- 🏥 Clinical screening for perseverative thinking
-- 🎓 Cognitive psychology coursework and demos
+-  Research on language & executive function
+-  Studies of bilingualism and cognitive flexibility
+-  Clinical screening for perseverative thinking
+-  Cognitive psychology coursework and demos
 
 ---
 
@@ -72,7 +72,7 @@ A **perseverative error** is when a participant chooses the card that would have
 ### Reaction Time
 - Mean RT for correct vs. incorrect responses
 - RT per rule dimension
-- **Post-error slowing** — the hesitation that follows a mistake
+- **Post-error slowing**  the hesitation that follows a mistake
 
 ---
 
