@@ -93,7 +93,12 @@ class TrialLogger:
         final_streaks = {}
         for t in T:
             final_streaks[t["rule"]] = t["streak_after"]
-        from settings import TRIALS_PER_RULE
+        try:
+            from settings import TRIALS_PER_RULE
+        except ImportError:
+            import sys, os
+            sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
+            from settings import TRIALS_PER_RULE
         for rule, streak in final_streaks.items():
             if streak >= TRIALS_PER_RULE:
                 completed_rules.add(rule)
