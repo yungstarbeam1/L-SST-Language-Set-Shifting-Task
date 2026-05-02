@@ -115,7 +115,7 @@ No installation. No Python. No dependencies. Just run it.
 
 ---
 
-## Configuration
+## Config
 
 Open `settings.py` in any text editor:
 
@@ -123,11 +123,6 @@ Open `settings.py` in any text editor:
 RULES = ["semantic", "length", "phonological"]  # which rules to include
 SHUFFLE_RULES = True                             # randomise rule order?
 TRIALS_PER_RULE = 5                              # streak needed to shift
-```
-
-Before each session, update the participant ID in `main.py`:
-```python
-logger = TrialLogger(participant_id="P001")
 ```
 
 ---
