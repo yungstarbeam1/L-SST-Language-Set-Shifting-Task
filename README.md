@@ -110,9 +110,7 @@ LSST_release/
 ├── Manual.md      ← full documentation
 └── data/          ← exported CSVs appear here
 ```
-
-No installation. No Python. No dependencies. Just run it.
-
+Double click the LSST file and get started
 ---
 
 ## Config
